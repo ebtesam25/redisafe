@@ -2,7 +2,7 @@ import React from "react";
 
 const LiveDataMetrics = ({ data }) => {
   console.log(data);
-  const { pulse, oxygen, temperature, times } = data;
+  const { pulse, oxygen, temperature, time } = data;
 
   return (
     <div className='mb-12'>
@@ -26,7 +26,7 @@ const LiveDataMetrics = ({ data }) => {
           </div>
           <div className='mt-4 flex flex-row items-end justify-start text-white'>
             <h3 className='text-white font-extrabold text-5xl'>
-              {pulse[times.length - 1]}
+              {pulse[time.length - 1]}
             </h3>
             <span className='font-medium text-md mb-1 ml-2'>bpm</span>
           </div>
@@ -51,7 +51,7 @@ const LiveDataMetrics = ({ data }) => {
           </div>
           <div className='mt-4 flex flex-row items-end justify-start text-white'>
             <h3 className='text-white font-extrabold text-5xl'>
-              {temperature[times.length - 1]}
+              {temperature[time.length - 1]}
             </h3>
             <span className='font-medium text-md mb-1 ml-2'>°F</span>
           </div>
@@ -77,7 +77,7 @@ const LiveDataMetrics = ({ data }) => {
           <div className='mt-4 flex flex-row items-end justify-start text-white'>
             <h3 className='text-white font-extrabold text-5xl'>
               {" "}
-              {oxygen[times.length - 1]}
+              {oxygen[time.length - 1]}
             </h3>
             <span className='font-medium text-md mb-1 ml-2'>
               % oxygen saturation

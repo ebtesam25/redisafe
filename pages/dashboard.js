@@ -8,7 +8,6 @@ import Graph from "@/components/dashboard/Graph";
 const Dashboard = () => {
   const [liveData, setLiveData] = useState(null);
   const [painData, setPainData] = useState(null);
-  const [glucoseData, setGlucoseData] = useState(null);
   const [oxygenData, setOxygenData] = useState(null);
   const [pulseData, setPulseData] = useState(null);
   const [temperatureData, setTemperatureData] = useState(null);
@@ -16,49 +15,41 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchLiveReadings = async () => {
       try {
-        const res = await axios.post("/api/proxy", {
+        const res = await axios.post("/api/proxy/", {
           action: "getchaindata",
           eid: "4",
         });
         setLiveData(res.data);
-
         console.log(res.data);
 
-        const { times, glucose, gsrDev, oxygen, pulse, temperature } = res.data;
-        const formattedGlucoseData = [];
+        const { time, gsrdev, oxygen, pulse, temperature } = res.data;
         const formattedPainData = [];
         const formattedOxygenData = [];
         const formattedPulseData = [];
         const formattedTemperatureData = [];
 
-        times.forEach((time, idx) => {
-          formattedGlucoseData.push({
-            name: parseInt(time),
-            glucose_level: glucose[idx],
-          });
-
+        time.forEach((t, idx) => {
           formattedPainData.push({
-            name: parseInt(time),
-            pain_level: gsrDev[idx],
+            name: parseInt(t),
+            pain_level: gsrdev[idx],
           });
 
           formattedOxygenData.push({
-            name: parseInt(time),
+            name: parseInt(t),
             oxygen_level: oxygen[idx],
           });
 
           formattedPulseData.push({
-            name: parseInt(time),
+            name: parseInt(t),
             pulse_level: pulse[idx],
           });
 
           formattedTemperatureData.push({
-            name: parseInt(time),
+            name: parseInt(t),
             temperature_level: temperature[idx],
           });
         });
 
-        setGlucoseData(formattedGlucoseData);
         setPainData(formattedPainData);
         setOxygenData(formattedOxygenData);
         setPulseData(formattedPulseData);
@@ -72,7 +63,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <React.Fragment className='overflow-hidden'>
+    <React.Fragment>
       <div className='py-3 md:py-4 xl:py-6 bg-header-dashboard'>
         <div className='mx-auto container px-4 xl:px-0'>
           <LightNav />
@@ -90,11 +81,6 @@ const Dashboard = () => {
               </div>
               <div className='mt-8'>
                 {liveData && <LiveDataMetrics data={liveData} />}
-                <Graph
-                  title='Glucose Levels (mg/dL) vs. Time'
-                  data={glucoseData}
-                  data_key='glucose_level'
-                />
               </div>
               <div className='mt-12'>
                 <Graph
