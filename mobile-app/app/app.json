@@ -1,0 +1,14 @@
+{
+  "name": "app",
+  "displayName": "app",
+  "expo": {
+    "name": "RediSafe",
+    "slug": "redisafe",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": "",
+    "githubUrl": "https://github.com/aryanvichare/Redisafe"
+  }
+}

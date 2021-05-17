@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-hero-pattern {
+    @apply bg-center bg-cover;
+  }
+  .center {
+    @apply flex flex-row justify-center items-center;
+  }
+  .bg-header-dashboard {
+    /* background: linear-gradient(87.8deg, #ed213a 6.19%, #93291e 99.43%); */
+    background-color: #ed213a;
+  }
+
+  .floating {
+    transform: translateY(0px);
+    animation: floating-animation 4s ease-in-out infinite;
+  }
+
+  @keyframes floating-animation {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
