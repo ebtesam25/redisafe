@@ -27,7 +27,7 @@ export default function Home() {
     "96.9"]});
 
     const _getHealthData = () => {
-        fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/healthchain',{
+        fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/redisafe',{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
