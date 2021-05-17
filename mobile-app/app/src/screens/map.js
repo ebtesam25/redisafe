@@ -62,7 +62,7 @@ export default function Map() {
      }
 
      const _getCOVIDData = () => {
-        fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/healthchain',{
+        fetch('https://us-central1-aiot-fit-xlab.cloudfunctions.net/redisafe',{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
