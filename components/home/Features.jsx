@@ -44,11 +44,14 @@ const Features = () => {
             <p className='mb-2 text-sm font-semibold leading-none text-left text-primary uppercase'>
               Safety is Priority
             </p>
-            <h3 className='mt-2 text-2xl sm:text-left md:text-4xl'>......</h3>
+            <h3 className='mt-2 text-2xl sm:text-left md:text-4xl'>
+              We keep you safe
+            </h3>
             <p className='mt-5 text-lg text-gray-700 text md:text-left'>
               Check the concentration of COVID-19 cases in your area, and if
               you’ve visited any of the containment zones. This data is taken
-              from your Google Maps Timeline.
+              from your Google Maps Timeline. Redisafe also have built-in SOS
+              fall detection that can detect whenever the user falls.
             </p>
           </div>
         </div>
